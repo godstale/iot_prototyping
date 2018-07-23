@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Serial Connector</string>
+    <string name="btn_send">Send</string>
+    <string name="text_info">\@baudrate [integer] \n    => set baudrate\n\n</string>
+</resources>
