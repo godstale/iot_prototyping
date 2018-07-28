@@ -11,7 +11,7 @@ def receiveMsg():
     port = server_sock.getsockname()[1]
 
     # 블루투스 서비스를 Advertise
-    advertise_service( server_sock, "BtChat",
+    advertise_service( server_sock, "RPi_IoT_Bt",
             service_id = uuid,
             service_classes = [ uuid, SERIAL_PORT_CLASS ],
             profiles = [ SERIAL_PORT_PROFILE ] )
@@ -34,7 +34,7 @@ def receiveMsg():
             client_sock.close()
             server_sock.close()
             print("all done")
-            pass
+            break
 
         except KeyboardInterrupt:
             print("disconnected")
