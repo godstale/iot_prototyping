@@ -33,7 +33,7 @@ void loop()
 {
     HTTPClient http;
  
-    http.begin("http://www.server_addr.com/data");        // 서버 주소
+    http.begin("http://www.server_addr.com:3000/data");        // 서버 주소
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
     // 랜덤 번호 생성
