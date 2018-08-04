@@ -17,7 +17,7 @@ def handle(msg):
             bot.sendMessage(chat_id, '지원하지 않는 기능입니다')
 
 
-TOKEN = '675424900:AAH2XBMw2yvS6rytLzJtIQ5BMoJeL9lg_Gc'    # 텔레그램으로부터 받은 Bot API 토큰
+TOKEN = 'your_telegram_token_here'    # 텔레그램으로부터 받은 Bot API 토큰
 
 bot = telepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
