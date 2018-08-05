@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">MQTT Chat</string>
+
+    <!-- UI, Activity, Fragment -->
+    <string name="permission_desc">This app requires below permissions\nfor scanning BT devices.\n\nandroid.permission.ACCESS_FINE_LOCATION\nandroid.permission.ACCESS_COARSE_LOCATION</string>
+    <string name="title_example">Incoming messages</string>
+    <string name="btn_action_publish">Publish</string>
+    <string name="btn_action_subscribe">Subscribe</string>
+
+    <string name="mqtt_title">MQTT</string>
+    <string name="mqtt_state_init">Initializing</string>
+    <string name="mqtt_state_connect">Connecting</string>
+    <string name="mqtt_state_connected">Connected</string>
+    <string name="mqtt_state_error">Error</string>
+    <string name="disconnect">Disconnect</string>
+
+    <string name="hint_topic">Topic</string>
+    <string name="hint_msg">Message</string>
+    <string name="hint_unique_id">Unique ID</string>
+    <string name="hint_server">test.mosquitto.org</string>
+    <string name="hint_port">1883</string>
+
+    <!-- Button -->
+    <string name="button_connect_broker">Connect Broker</string>
+    <string name="button_publish">Publish</string>
+    <string name="button_subscribe">Subscribe</string>
+
+    <string name="new_connection_added">Added a new Connection</string>
+    <string name="new_connection">New Connection</string>
+    <string name="new_connection_short">+</string>
+    <string name="notification">%1$s has received %2$s on topic %3$s</string>
+    <string name="message_recieved">Received message %1$s &lt;br/&gt; &lt;small&gt;Topic: %2$s &lt;/small&gt; </string>
+    <string name="message_received_header">Received : </string>
+    <string name="conn_deleted">Connection deleted</string>
+    <string name="connected_to">Connected to </string>
+    <string name="disconnected_from">Disconnected from</string>
+
+    <string name="toast_pub_success">Published: %1$s</string>
+    <string name="toast_sub_success">Subscribed to %1$s</string>
+    <string name="toast_disconnected">MQTT Disconnect</string>
+    <string name="toast_connected">Connected to </string>
+    <string name="toast_pub_failed">Failed to publish message: %1$s to topic: %2$s</string>
+    <string name="toast_sub_failed">Failed to subscribe to %1$s</string>
+    <string name="disconnect_client">Disconnect Client?</string>
+    <string name="notify_title">MQTT Message Received</string>
+    <string name="notify_title_connection_lost">MQTT Client Has Lost Connection</string>
+    <string name="connection_lost">%1$s has lost connection to %2$s</string>
+    <string name="no_status">Unknown connection status to</string>
+    <string name="connecting">Connecting to</string>
+    <string name="disconnecting">Disconnecting from</string>
+    <string name="connection_error">An error occurred connecting to</string>
+    <string name="date_format">dd/MM/yy \'at\' HH:mm:ss</string>
+    <string name="timestamp">&lt;br/&gt; &lt;small&gt; %1$s &lt;/small&gt;</string>
+
+    <string name="dialog_connection_info">Connection Info</string>
+    <string name="dialog_client_id">Client ID</string>
+    <string name="dialog_server">Server</string>
+    <string name="dialog_port">Port</string>
+
+    <string name="delete_dialog">The selected client is currently connected or connecting, deleting this connection will cause it to be disconnected.</string>
+    <string name="continue_btn">Continue</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="connect_btn">Connect</string>
+
+    <string name="alert_insufficient_info">Some information is missing.\nPlease fill out every information.</string>
+    <!-- Options Menu -->
+    <string name="connect">Connect\na device</string>
+</resources>

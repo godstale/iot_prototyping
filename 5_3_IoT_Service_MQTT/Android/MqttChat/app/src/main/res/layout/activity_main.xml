@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hardcopy.mqttchat.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dip"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_connect_broker"
+                android:layout_width="0dip"
+                android:layout_height="36dip"
+                android:layout_weight="1"
+                android:text="@string/button_connect_broker"/>
+            <Button
+                android:id="@+id/btn_publish"
+                android:layout_width="0dip"
+                android:layout_height="36dip"
+                android:layout_weight="1"
+                android:text="@string/button_publish"/>
+            <Button
+                android:id="@+id/btn_subscribe"
+                android:layout_width="0dip"
+                android:layout_height="36dip"
+                android:layout_weight="1"
+                android:text="@string/button_subscribe"/>
+        </LinearLayout>
+
+        <!-- Main contents -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/layout_main_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="36dip"
+            android:layout_marginBottom="26dip">
+            <TextView
+                android:id="@+id/text_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_example"
+                android:textSize="10sp"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/layout_input_msg"/>
+            <LinearLayout
+                android:id="@+id/layout_input_msg"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <EditText android:id="@+id/edit_topic"
+                    android:layout_width="0dip"
+                    android:layout_height="36dip"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:hint="@string/hint_topic"
+                    android:inputType="text"/>
+                <EditText android:id="@+id/edit_msg"
+                    android:layout_width="0dip"
+                    android:layout_height="36dip"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:hint="@string/hint_msg"
+                    android:inputType="text"/>
+                <Button
+                    android:id="@+id/btn_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dip"
+                    android:text="@string/btn_action_publish"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- status bar : display connection info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dip"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/img_status"
+                android:layout_width="wrap_content"
+                android:layout_height="20dip"
+                android:layout_margin="3dip"
+                />
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="match_parent"
+                android:layout_height="20dip"
+                android:layout_margin="3dip"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
