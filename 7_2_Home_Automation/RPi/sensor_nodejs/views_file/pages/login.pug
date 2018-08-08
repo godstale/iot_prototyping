@@ -1,0 +1,72 @@
+extends ../layout/pages.pug
+
+block view
+  .container
+    .row.justify-content-center
+      .col-md-8
+        .card-group
+          .card.p-4
+            .card-body
+              h1 채널 선택
+              p.text-muted 확인하고 싶은 채널 번호를 입력하세요
+              .input-group.mb-4
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-lock
+                input.form-control(type='text', id='channel' placeholder='Channel')
+              .input-group.mb-4
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-lock
+                input.form-control(type='text', id='authCode' placeholder='Auth')
+              .row
+                .col-sm.mb-4.col-centered
+                  button.btn.btn-primary.px-4(type='button' id='login') Login
+                .col-sm.mb-4.col-centered
+                  button.btn.btn-primary.px-4(type='button' id='register') Register
+  script.
+    var loginBtn = document.getElementById('login')
+    loginBtn.addEventListener('click', ()=> {
+      var channel = document.getElementById('channel').value
+      var authCode = document.getElementById('authCode').value
+      if (channel.length > 0 && authCode.length > 0) {
+        verifyLogin(channel, authCode)
+      }
+      else {
+        if(channel.length == 0) {
+          alert("채널을 입력하지 않았습니다.")
+        }
+        else {
+          alert("인증번호를 입력하지 않았습니다.")
+        }
+      }
+    })
+
+    var registerBtn = document.getElementById('register')
+    registerBtn.addEventListener('click', ()=> {
+      location.href="/register/"
+    })
+
+    function verifyLogin(channel, authCode) {
+      var params = {
+        channel: channel,
+        authCode: authCode
+      }
+
+      var oReq = new XMLHttpRequest();
+
+      oReq.open('POST', 'http://yscwcb.mooo.com:3010/login/'+channel);
+      oReq.setRequestHeader('Content-Type', "application/json")
+
+      oReq.send(JSON.stringify(params));
+      oReq.addEventListener('load', () => {
+        var response = JSON.parse(oReq.responseText);
+        console.log(response);
+        if(response.result.startsWith('S')) {
+        location.href="/index/"+channel
+        }
+        else {
+        alert(response.msg)
+        }
+      });
+    }

@@ -1,0 +1,50 @@
+extends ../layout/pages.pug
+
+block view
+  .container
+    .row.justify-content-center
+      .col-md-8
+        .card-group
+          .card.p-4
+            .card-body
+              h1 채널 등록
+              p.text-muted 등록할 채널명을 입력하세요
+              .input-group.mb-4
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-lock
+                input.form-control(type='text', id='chName' placeholder='Channel Name')
+              .row
+                .col-sm.col-centered
+                  //- script(src="script/aa.js")
+                  button.btn.btn-primary.px-4(type='button' id='register') Register
+              script.
+                var registerBtn = document.getElementById('register')
+                registerBtn.addEventListener('click', ()=> {
+                  var channelName = document.getElementById('chName').value
+                  registerChannel(channelName)
+                })
+
+                function registerChannel(channelName) {
+                  var params = {
+                    channelName: channelName,
+                  }
+
+                  var oReq = new XMLHttpRequest();
+
+                  oReq.open('POST', 'http://yscwcb.mooo.com:3010/register/');
+                  oReq.setRequestHeader('Content-Type', "application/json")
+
+                  oReq.send(JSON.stringify(params));
+                  oReq.addEventListener('load', () => {
+                    var response = JSON.parse(oReq.responseText);
+                    console.log(response);
+                    if(response.result.startsWith('S')) {
+                      alert('채널 : ' + response.channel + '\n' + '채널명 : ' + response.authCode)
+                      location.href="/login/"
+                    }
+                    else {
+                      alert(response.msg)
+                    }
+                  });
+                } 

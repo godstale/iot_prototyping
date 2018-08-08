@@ -1,0 +1,39 @@
+extends ../layout/default.pug
+
+block scripts
+  if !starter
+    // Plugins and scripts required by this view
+    script(src='/node_modules/chart.js/dist/Chart.min.js')
+    script(src='/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')
+    script(src='/script/main.js')
+    script(src='/script/date_prototype.js')
+
+block view
+  .animated.faidIn
+    .card
+      .card-body
+        h1 !{sensorInfo}
+        .row
+          .col-sm-5
+            if data
+              .text-muted !{data}
+            else
+              .text-muted November 2017
+      .chart-wrapper(style='height:300px;margin-top:40px;')
+        canvas#main-chart.chart(height='300' margin-top='40')
+    .row
+      .col-sm.mb-4.col-centered
+        button.btn.btn-primary.px-4(type='button' id='sensorOn') Sensor On
+      .col-sm.mb-4.col-centered
+        button.btn.btn-primary.px-4(type='button' id='sensorOff') Sensor Off
+      .col-sm.mb-4.col-centered
+        button.btn.btn-primary.px-4(type='button' id='stopBtn') Stop Update
+  
+  script.
+    window.onload = () => {
+      drawChart(!{responseData})
+      startDraw(!{channel})
+    }
+    window.onbeforeunload = () => {
+      stopDraw(!{channel})
+    }
