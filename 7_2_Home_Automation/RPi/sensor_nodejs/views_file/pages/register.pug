@@ -32,7 +32,7 @@ block view
 
                   var oReq = new XMLHttpRequest();
 
-                  oReq.open('POST', 'register/');
+                  oReq.open('POST', '/register');
                   oReq.setRequestHeader('Content-Type', "application/json")
 
                   oReq.send(JSON.stringify(params));
