@@ -3,13 +3,16 @@ const sql = require('mysql')
 const bodyParser = require('body-parser')
 const path = require('path')
 const mqtt = require('mqtt')
+var fs = require('fs')
+
 const app = express()
+var config = JSON.parse(fs.readFileSync(__dirname + '/config.json'))
 
 const sqlConn = sql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '12341234',
-  database: 'lora_db',
+  password: 'user_passwd',
+  database: 'sensor_db',
 })
 sqlConn.connect()
 
@@ -25,7 +28,6 @@ app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')))
 
 var routeLora = require(path.join(__dirname, 'router', 'router_sensor'))(express, sqlConn, mqtt)
 app.use('/', routeLora)
-port = 3010
-app.listen(port, () => {
+app.listen(config.server_port, () => {
   console.log("Server has been started");
 });

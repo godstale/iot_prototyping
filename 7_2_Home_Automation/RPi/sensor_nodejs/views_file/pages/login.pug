@@ -55,7 +55,7 @@ block view
 
       var oReq = new XMLHttpRequest();
 
-      oReq.open('POST', 'http://yscwcb.mooo.com:3010/login/'+channel);
+      oReq.open('POST', 'login/'+channel);
       oReq.setRequestHeader('Content-Type', "application/json")
 
       oReq.send(JSON.stringify(params));

@@ -5,6 +5,9 @@ module.exports = function (express, sqlConn, mqtt) {
   var route = express.Router()
   require('../js/date_prototype')
   require('../js/util')()
+  var fs = require('fs')
+  var config = JSON.parse(fs.readFileSync(__dirname + '/../config.json'))
+
   route.get('/', (req, res) => {
     channel = 0
     authCode = ""
@@ -160,9 +163,9 @@ module.exports = function (express, sqlConn, mqtt) {
       if (err) throw err
       else {
         var option = {
-          port: 1883
+          port: config.mqtt_port
         }
-        var client = mqtt.connect('mqtt://yscwcb.mooo.com/', option)
+        var client = mqtt.connect(config.mqtt_addr, option)
         client.on('connect', () => {
           var topic = req.params.channel + '/status'
           logger.debug(topic)

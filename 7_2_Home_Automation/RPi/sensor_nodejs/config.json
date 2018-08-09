@@ -1,0 +1,6 @@
+{
+  "server_addr":"http://user.server.com",
+  "server_port":1000,
+  "mqtt_addr":"mqtt://user.server.com",
+  "mqtt_port":1883
+}
