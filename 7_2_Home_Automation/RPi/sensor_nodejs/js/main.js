@@ -122,7 +122,7 @@ function drawChart(resultData) {
 function updateChart(channel) {
   var oReq = new XMLHttpRequest()
 
-  oReq.open('POST', 'index/'+channel)
+  oReq.open('POST', '/index/'+channel)
   oReq.setRequestHeader('Content-Type', "application/json")
   oReq.send()
 
@@ -139,7 +139,7 @@ function changeStatus(channel, status) {
 
   var oReq = new XMLHttpRequest()
 
-  oReq.open('POST', 'index/'+channel+"/changeStatus")
+  oReq.open('POST', '/index/'+channel+"/changeStatus")
   oReq.setRequestHeader('Content-Type', "application/json")
   console.log(JSON.stringify(params))
   oReq.send(JSON.stringify(params))
