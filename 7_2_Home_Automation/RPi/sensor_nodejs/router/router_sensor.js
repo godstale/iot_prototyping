@@ -168,7 +168,6 @@ module.exports = function (express, sqlConn, mqtt) {
         var client = mqtt.connect(config.mqtt_addr, option)
         client.on('connect', () => {
           var topic = req.params.channel + '/status'
-          logger.debug(topic)
           client.publish(topic, req.body.status)
           client.end()
         })
